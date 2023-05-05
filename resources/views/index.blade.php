@@ -18,7 +18,7 @@
             </thead>
             <tbody>
                 @foreach ($trains as $train)
-                <tr class="{{ $train->on_time ? '' : 'danger' }}">
+                <tr class="{{ $train->on_time === 'yes' ? '' : 'danger' }}">
                     <th scope="row">{{ $train->train_code }}</th>
                     <td>{{ $train->vendor }}</td>
                     <td>{{ $train->departure }}</td>
@@ -27,7 +27,7 @@
                     <td>{{ $train->arrival_time }}</td>
                     <td>{{ $train->departure_date }}</td>
                     <td>{{ $train->car }}</td>
-                    <td>{{ $train->on_time ? 'Yes' : 'No' }}</td>
+                    <td>{{ $train->on_time }}</td>
                 </tr>
                 @endforeach
             </tbody>

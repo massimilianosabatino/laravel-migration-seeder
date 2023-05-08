@@ -19,18 +19,21 @@ class TrainSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('trains')->insert([
-            'vendor' => fake()->randomElement(['Trenitalia', 'Italo', 'Trenord', 'Cotrap']),
-            'departure' => fake()->city(),
-            'arrival' => fake()->city(),
-            'departure_time' => fake()->time('H:i'),
-            'arrival_time' => fake()->time('H:i'),
-            'departure_date' => fake()->date(),
-            'train_code' => fake()->randomNumber(5, true),
-            'car' => fake()->randomDigitNotNull(),
-            'on_time' => fake()->numberBetween(0, 1),
-            'cancelled' => fake()->numberBetween(0, 1),
-        ]);
+        for($i = 0; $i < 10; $i++){
+            
+            DB::table('trains')->insert([
+                'vendor' => fake()->randomElement(['Trenitalia', 'Italo', 'Trenord', 'Cotrap']),
+                'departure' => fake()->city(),
+                'arrival' => fake()->city(),
+                'departure_time' => fake()->time('H:i'),
+                'arrival_time' => fake()->time('H:i'),
+                'departure_date' => fake()->date(),
+                'train_code' => fake()->randomNumber(4, true),
+                'car' => fake()->randomDigitNotNull(),
+                'on_time' => fake()->numberBetween(0, 1),
+                'cancelled' => fake()->numberBetween(0, 1),
+            ]);
+        }
 
     }
 }

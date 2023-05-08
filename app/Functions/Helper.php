@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Functions\Helper;
+namespace App\Functions;
 
-class Helper
+class Helpers
 {
     private $row = 0;
     private $column = [];
@@ -11,6 +11,7 @@ class Helper
     public static function getCSV($fileName)
     {
         $file = __DIR__.'/'.$fileName;
+        
         
         if (($handle = fopen($file, "r")) !== FALSE) {
     

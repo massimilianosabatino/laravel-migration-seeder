@@ -4,24 +4,26 @@ namespace App\Functions;
 
 class Helpers
 {
-    private $row = 0;
-    private $column = [];
+    // private $row = 0;
+    // private $column = [];
     public static $csvData = [];
 
-    public static function getCSV($fileName)
+    public static function getCSV($fileName): array
     {
-        $file = __DIR__.'/'.$fileName;
-        
+        // $file = __DIR__.'/'.$fileName;
+        $file = $fileName;
+        $row = 0;
+        $column = [];
         
         if (($handle = fopen($file, "r")) !== FALSE) {
     
             while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
                 
                 $num = count($data);
-                self::$row++;
+                $row++;
                 
-                if(self::$row === 1){
-                    array_push(self::$column, ...$data);
+                if($row === 1){
+                    array_push($column, ...$data);
         
                 } else {
         
@@ -29,7 +31,7 @@ class Helpers
         
                     for ($i=0; $i < $num; $i++) {
         
-                        $rowDataArray[self::$column[$i]] = $data[$i];
+                        $rowDataArray[$column[$i]] = $data[$i];
         
                     }
         

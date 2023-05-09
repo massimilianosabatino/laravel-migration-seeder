@@ -15,8 +15,9 @@ class TrainCsvSeeder extends Seeder
      */
     public function run()
     {
+        $file_stream = __DIR__.'/csv/trains.csv';
 
-        $getRecord = Helpers::getCSV('csv/train.csv');
+        $getRecord = Helpers::getCSV($file_stream);
         
         dd($getRecord);
     }
